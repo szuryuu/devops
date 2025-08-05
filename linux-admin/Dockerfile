@@ -3,7 +3,7 @@ FROM debian:bookworm-slim
 # Update the package lists and install necessary packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    curl bash cron ca-certificates && \
+    curl bash cron ca-certificates coreutils gawk && \
     rm -rf /var/lib/apt/lists/*
 
 COPY . .
