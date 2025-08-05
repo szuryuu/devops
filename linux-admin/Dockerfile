@@ -1,0 +1,18 @@
+FROM debian:bookworm-slim
+
+# Update the package lists and install necessary packages
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    curl bash \
+    ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY . .
+RUN chmod +x ./entrypoint.sh
+RUN chmod +x ./scripts/*.sh
+
+# Expose the port your application listens on
+EXPOSE 80
+
+ENTRYPOINT [ "./entrypoint.sh" ]
+CMD ["echo", "Running Bash/n", "Jawa"]
