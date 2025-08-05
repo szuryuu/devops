@@ -5,7 +5,8 @@ echo "Running startup scripts..."
 
 # Run your scripts
 # ./scripts/remove-user.sh
-./scripts/create-user.sh
+# ./scripts/create-user.sh
+./scripts/disk-monitor.sh
 
 echo "All scripts completed successfully"
 
