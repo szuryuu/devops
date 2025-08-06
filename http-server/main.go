@@ -1,13 +1,15 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"math/rand"
 	"net/http"
 	"os"
-	"runtime"
+	"os/signal"
+	"syscall"
 	"time"
 )
 
@@ -43,24 +45,26 @@ func main() {
 	loadConfig()
 	getPID()
 
-	runtime.GOMAXPROCS(2)
+	// runtime.GOMAXPROCS(2)
 
-	// srv := http.Server{}
+	srv := &http.Server{
+		Addr: ":8080",
+	}
 
-	// ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
-	// defer stop()
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
 
 	http.HandleFunc("/time", loggingMiddleware(getTimeHandler))
 	http.HandleFunc("/error", loggingMiddleware(errorHandler))
 	http.HandleFunc("/random", loggingMiddleware(getRandomHandler))
 
-	http.ListenAndServe(":8080", nil)
+	go srv.ListenAndServe()
 
-	// <-ctx.Done()
-	// log.Println("got interruption signal")
-	// if err := srv.Shutdown(context.TODO()); err != nil {
-	// 	log.Println("graceful shutdown failed:", err)
-	// }
+	<-ctx.Done()
+	log.Println("got interruption signal")
+	if err := srv.Shutdown(context.TODO()); err != nil {
+		log.Println("graceful shutdown failed:", err)
+	}
 }
 
 func loadConfig() {
