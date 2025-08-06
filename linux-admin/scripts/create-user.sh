@@ -1,5 +1,7 @@
 #!/bin/bash
 
+URL="https://eo5wtn983pri732.m.pipedream.net"
+
 groupadd testusers
 for i in {1001..1100}; do
     USERNAME="user-$i"
@@ -7,7 +9,7 @@ for i in {1001..1100}; do
     useradd -u $i -g testusers $USERNAME
     GROUPNAME=$(id -g -n $USERNAME)
 
-    curl -X POST https://eo50x3rnudzgrdw.m.pipedream.net \
+    curl -X POST $URL \
     -H "Content-Type: application/json" \
     -d '{
         "username": "'$USERNAME'",
