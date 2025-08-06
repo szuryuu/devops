@@ -13,6 +13,15 @@ import (
 	"time"
 )
 
+var config Config
+var logFile *os.File
+var getTime = func() string {
+	return time.Now().Format("2006-01-02 15:04:05")
+}
+var randomNum = func() int {
+	return rand.Intn(100)
+}
+
 type Config struct {
 	LogFileName string `json:"log_filename"`
 	LogLevel    int    `json:"log_level"`
@@ -33,38 +42,9 @@ type StatusRecorder struct {
 	statusCode int
 }
 
-var config Config
-var getTime = func() string {
-	return time.Now().Format("2006-01-02 15:04:05")
-}
-var randomNum = func() int {
-	return rand.Intn(100)
-}
-
-func main() {
-	loadConfig()
-	getPID()
-
-	// runtime.GOMAXPROCS(2)
-
-	srv := &http.Server{
-		Addr: ":8080",
-	}
-
-	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
-	defer stop()
-
-	http.HandleFunc("/time", loggingMiddleware(getTimeHandler))
-	http.HandleFunc("/error", loggingMiddleware(errorHandler))
-	http.HandleFunc("/random", loggingMiddleware(getRandomHandler))
-
-	go srv.ListenAndServe()
-
-	<-ctx.Done()
-	log.Println("got interruption signal")
-	if err := srv.Shutdown(context.TODO()); err != nil {
-		log.Println("graceful shutdown failed:", err)
-	}
+func (r *StatusRecorder) WriteHeader(code int) {
+	r.statusCode = code
+	r.ResponseWriter.WriteHeader(code)
 }
 
 func loadConfig() {
@@ -104,19 +84,31 @@ func errorHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(os.Stderr, "Internal Server Error occurred at /error")
 }
 
-func writeLog(message string) {
-	filename := config.LogFileName
-
-	file, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		log.Fatal(err)
-		return
+func openLogFile() error {
+	if logFile != nil {
+		logFile.Close()
 	}
-	defer file.Close()
 
-	_, err = file.WriteString(message + "\n")
+	file, err := os.OpenFile(config.LogFileName, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Fatal(err)
+		return err
+	}
+
+	logFile = file
+	return nil
+}
+
+func writeLog(message string) {
+	if logFile == nil {
+		if err := openLogFile(); err != nil {
+			log.Printf("Error opening log file: %v", err)
+			return
+		}
+	}
+
+	_, err := logFile.WriteString(message + "\n")
+	if err != nil {
+		log.Printf("Error writing to log file: %v", err)
 	}
 }
 
@@ -124,11 +116,6 @@ func logRequest(level int, message string) {
 	if level <= config.LogLevel {
 		writeLog(message)
 	}
-}
-
-func (r *StatusRecorder) WriteHeader(code int) {
-	r.statusCode = code
-	r.ResponseWriter.WriteHeader(code)
 }
 
 func loggingMiddleware(next http.HandlerFunc) http.HandlerFunc {
@@ -154,4 +141,47 @@ func loggingMiddleware(next http.HandlerFunc) http.HandlerFunc {
 		logBytes, _ := json.Marshal(logData)
 		logRequest(2, string(logBytes))
 	}
+}
+
+func main() {
+	loadConfig()
+	getPID()
+
+	srv := &http.Server{
+		Addr: ":8080",
+	}
+
+	sigChan := make(chan os.Signal, 1)
+	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM, syscall.SIGUSR1, syscall.SIGUSR2)
+
+	http.HandleFunc("/time", loggingMiddleware(getTimeHandler))
+	http.HandleFunc("/error", loggingMiddleware(errorHandler))
+	http.HandleFunc("/random", loggingMiddleware(getRandomHandler))
+
+	go srv.ListenAndServe()
+	for sig := range sigChan {
+		switch sig {
+		case syscall.SIGINT, syscall.SIGTERM:
+			ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+			defer stop()
+			log.Printf("got interruption signal")
+			if err := srv.Shutdown(ctx); err != nil {
+				log.Println("graceful shutdown failed:", err)
+			}
+			return
+		case syscall.SIGUSR1:
+			log.Println("Received SIGUSR1: Reopening log file...")
+			if err := openLogFile(); err != nil {
+				log.Printf("Failed to reopen log file: %v", err)
+			}
+		case syscall.SIGUSR2:
+			log.Println("got SIGUSR2 signal")
+		}
+	}
+
+	// <-ctx.Done()
+	// log.Println("got interruption signal")
+	// if err := srv.Shutdown(context.TODO()); err != nil {
+	// 	log.Println("graceful shutdown failed:", err)
+	// }
 }
