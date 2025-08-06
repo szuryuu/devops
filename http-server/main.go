@@ -62,6 +62,11 @@ func loadConfig() {
 		fmt.Println(config)
 	}
 
+	if err := openLogFile(); err != nil {
+		log.Fatalf("Failed to open log file: %v", err)
+	}
+	log.SetOutput(logFile)
+
 }
 
 func getPID() {
@@ -91,6 +96,7 @@ func openLogFile() error {
 
 	file, err := os.OpenFile(config.LogFileName, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
+		log.Fatal(err)
 		return err
 	}
 
@@ -162,7 +168,7 @@ func main() {
 	for sig := range sigChan {
 		switch sig {
 		case syscall.SIGINT, syscall.SIGTERM:
-			ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+			ctx, stop := context.WithTimeout(context.Background(), 5*time.Second)
 			defer stop()
 			log.Printf("got interruption signal")
 			if err := srv.Shutdown(ctx); err != nil {
@@ -174,14 +180,12 @@ func main() {
 			if err := openLogFile(); err != nil {
 				log.Printf("Failed to reopen log file: %v", err)
 			}
+
+			logRequest(1, "test")
 		case syscall.SIGUSR2:
-			log.Println("got SIGUSR2 signal")
+			log.Println("Received SIGUSR2: Reloading configuration...")
+			loadConfig()
+			logRequest(2, "Configuration reloaded due to SIGUSR2")
 		}
 	}
-
-	// <-ctx.Done()
-	// log.Println("got interruption signal")
-	// if err := srv.Shutdown(context.TODO()); err != nil {
-	// 	log.Println("graceful shutdown failed:", err)
-	// }
 }
