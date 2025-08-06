@@ -15,11 +15,11 @@ FROM alpine:latest
 
 WORKDIR /app
 RUN apk add --no-cache \
-    ca-certificates curl && \
+    bash ca-certificates curl && \
     rm -rf /var/cache/apk/*
 
 COPY --from=builder /app/main .
-COPY ./config/config.json ./config
+COPY ./config/* ./config/
 
 RUN mkdir -p logs
 
