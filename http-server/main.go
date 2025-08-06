@@ -18,7 +18,7 @@ var logFile *os.File
 var getTime = func() string {
 	return time.Now().Format("2006-01-02 15:04:05")
 }
-var randomNum = func() int {
+var getRandomNumber = func() int {
 	return rand.Intn(100)
 }
 
@@ -48,7 +48,7 @@ func (r *StatusRecorder) WriteHeader(code int) {
 }
 
 func loadConfig() {
-	dirPath := "../app/config/config.json"
+	dirPath := "./config/config.json"
 
 	file, err := os.Open(dirPath)
 	if err != nil {
@@ -79,8 +79,8 @@ func getTimeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getRandomHandler(w http.ResponseWriter, r *http.Request) {
-	randomNum := randomNum()
-	response := map[string]int{"number": randomNum}
+	randomNumber := getRandomNumber()
+	response := map[string]int{"number": randomNumber}
 	json.NewEncoder(w).Encode(response)
 }
 
@@ -93,6 +93,11 @@ func openLogFile() error {
 	if logFile != nil {
 		logFile.Close()
 	}
+
+	// if err := os.MkdirAll("logs", 0755); err != nil {
+	// 	log.Printf("Error creating logs directory: %v", err)
+	// 	return err
+	// }
 
 	file, err := os.OpenFile(config.LogFileName, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -119,7 +124,7 @@ func writeLog(message string) {
 }
 
 func logRequest(level int, message string) {
-	if level <= config.LogLevel {
+	if level >= config.LogLevel {
 		writeLog(message)
 	}
 }
@@ -176,16 +181,16 @@ func main() {
 			}
 			return
 		case syscall.SIGUSR1:
-			log.Println("Received SIGUSR1: Reopening log file...")
+			fmt.Println("Received SIGUSR1: Reopening log file...")
 			if err := openLogFile(); err != nil {
 				log.Printf("Failed to reopen log file: %v", err)
 			}
 
-			logRequest(1, "test")
+			logRequest(1, "Log file reopened via SIGUSR1")
 		case syscall.SIGUSR2:
-			log.Println("Received SIGUSR2: Reloading configuration...")
+			fmt.Println("Received SIGUSR2: Reloading configuration...")
 			loadConfig()
-			logRequest(2, "Configuration reloaded due to SIGUSR2")
+			logRequest(2, "Configuration successfully reloaded via SIGUSR2")
 		}
 	}
 }

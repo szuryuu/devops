@@ -22,7 +22,7 @@ COPY --from=builder /app/main .
 COPY ./config/* ./config/
 COPY ./logs/* ./logs/
 
-# RUN mkdir -p logs
+RUN mkdir -p logs
 
 EXPOSE 8080
 
