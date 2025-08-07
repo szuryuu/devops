@@ -6,7 +6,7 @@ services:
       - devops
     user: "1001"
     volumes:
-      - ./http-server/logs:/app/logs
+      - /app/logs
 
   nginx:
     build: ./nginx

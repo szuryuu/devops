@@ -16,7 +16,7 @@ WORKDIR /app
 RUN apk add --no-cache bash ca-certificates curl && \
     mkdir -p /app/logs && \
     chown -R 1001:1001 /app && \
-    chmod -R 755 /app/logs/*
+    chmod -R 755 /app/logs
 
 COPY --from=builder /app/main .
 COPY --chown=1001:1001 ./config ./config
