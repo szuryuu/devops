@@ -205,3 +205,115 @@
 2025/08/07 04:54:51 [error] 8#8: *2 directory index of "/usr/share/nginx/html/images/" is forbidden, client: 172.19.0.1, server: example.com, request: "GET /images/ HTTP/1.1", host: "localhost"
 2025/08/07 04:54:51 [error] 8#8: *2 directory index of "/usr/share/nginx/html/images/" is forbidden, client: 172.19.0.1, server: example.com, request: "GET /images/ HTTP/1.1", host: "localhost"
 2025/08/07 04:54:51 [error] 8#8: *2 directory index of "/usr/share/nginx/html/images/" is forbidden, client: 172.19.0.1, server: example.com, request: "GET /images/ HTTP/1.1", host: "localhost"
+2025/08/07 06:41:50 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:50 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:50 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:41:50 [warn] 6#6: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:50 [warn] 6#6: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:50 [emerg] 6#6: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:41:51 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:51 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:51 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:41:51 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:51 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:51 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:41:52 [warn] 8#8: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:52 [warn] 8#8: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:52 [emerg] 8#8: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:41:54 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:54 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:54 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:41:57 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:41:57 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:41:57 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:42:04 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:13
+2025/08/07 06:42:04 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/sites-available/default.conf:14
+2025/08/07 06:42:04 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:26
+2025/08/07 06:42:15 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:15 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:16 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:16 [emerg] 8#8: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:17 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:19 [emerg] 6#6: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:22 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:29 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:42 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/default.conf:27
+2025/08/07 06:42:54 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:42:54 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:42:55 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:42:55 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:42:56 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:42:58 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:43:01 [emerg] 8#8: zero size shared memory zone "global"
+2025/08/07 06:43:08 [emerg] 8#8: zero size shared memory zone "global"
+2025/08/07 06:43:21 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:43:47 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:44:38 [emerg] 6#6: zero size shared memory zone "global"
+2025/08/07 06:45:38 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:46:38 [emerg] 8#8: zero size shared memory zone "global"
+2025/08/07 06:47:39 [emerg] 8#8: zero size shared memory zone "global"
+2025/08/07 06:48:39 [emerg] 8#8: zero size shared memory zone "global"
+2025/08/07 06:49:39 [emerg] 9#9: zero size shared memory zone "global"
+2025/08/07 06:50:40 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:51:40 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:52:40 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 06:58:53 [emerg] 7#7: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:58:54 [emerg] 7#7: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:58:54 [emerg] 7#7: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:58:55 [emerg] 7#7: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:58:56 [emerg] 6#6: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:58:57 [emerg] 7#7: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:01 [emerg] 6#6: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:07 [emerg] 7#7: unknown directive "listern" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:17 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:17 [emerg] 6#6: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:18 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:18 [emerg] 8#8: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:19 [emerg] 6#6: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:21 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:24 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:31 [emerg] 6#6: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:44 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:51 [emerg] 6#6: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:51 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:52 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:52 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:53 [emerg] 6#6: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:55 [emerg] 6#6: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 06:59:58 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 07:00:05 [emerg] 7#7: invalid parameter "listen" in /etc/nginx/sites-available/reverse-proxy.conf:3
+2025/08/07 07:00:09 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:09 [emerg] 8#8: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:10 [emerg] 6#6: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:10 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:11 [emerg] 7#7: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:13 [emerg] 6#6: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:16 [emerg] 6#6: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:23 [emerg] 6#6: unexpected "}" in /etc/nginx/sites-available/reverse-proxy.conf:7
+2025/08/07 07:00:30 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:30 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:30 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 07:00:30 [warn] 6#6: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:30 [warn] 6#6: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:30 [emerg] 6#6: zero size shared memory zone "global"
+2025/08/07 07:00:31 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:31 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:31 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 07:00:31 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:31 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:31 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 07:00:32 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:32 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:32 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 07:00:34 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:34 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:34 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 07:00:37 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:37 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:37 [emerg] 7#7: zero size shared memory zone "global"
+2025/08/07 07:00:44 [warn] 6#6: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:44 [warn] 6#6: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:44 [emerg] 6#6: zero size shared memory zone "global"
+2025/08/07 07:00:57 [warn] 7#7: conflicting server name "example.com" on 0.0.0.0:80, ignored
+2025/08/07 07:00:57 [warn] 7#7: conflicting server name "example.com" on [::]:80, ignored
+2025/08/07 07:00:57 [emerg] 7#7: zero size shared memory zone "global"
