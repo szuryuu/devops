@@ -4,3 +4,13 @@
 2025/08/07 11:59:09 got interruption signal
 2025/08/07 12:03:47 got interruption signal
 2025/08/07 12:05:09 got interruption signal
+{"timestamp":"2025-08-07T13:55:27.123220198Z","method":"GET","path":"/random","status_code":200,"duration":"75.01µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:56610"}
+{"timestamp":"2025-08-07T13:55:36.186988613Z","method":"GET","path":"/error","status_code":500,"duration":"14.802µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:50714"}
+{"timestamp":"2025-08-07T13:55:52.146587545Z","method":"GET","path":"/time","status_code":200,"duration":"8.197µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42734"}
+{"timestamp":"2025-08-07T13:55:52.947872286Z","method":"GET","path":"/time","status_code":200,"duration":"11.176µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42746"}
+{"timestamp":"2025-08-07T13:55:53.780829093Z","method":"GET","path":"/time","status_code":200,"duration":"8.325µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42748"}
+{"timestamp":"2025-08-07T13:55:54.436705437Z","method":"GET","path":"/time","status_code":200,"duration":"10.991µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42762"}
+{"timestamp":"2025-08-07T13:55:55.289786355Z","method":"GET","path":"/time","status_code":200,"duration":"8.258µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42778"}
+{"timestamp":"2025-08-07T13:55:55.923344599Z","method":"GET","path":"/time","status_code":200,"duration":"7.691µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42784"}
+{"timestamp":"2025-08-07T13:55:56.502653653Z","method":"GET","path":"/time","status_code":200,"duration":"8.221µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42800"}
+{"timestamp":"2025-08-07T13:55:57.188126249Z","method":"GET","path":"/time","status_code":200,"duration":"8.289µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42816"}
