@@ -12,6 +12,9 @@ COPY html /usr/share/nginx/html
 COPY ssl/certs /etc/nginx/ssl/certs
 COPY entrypoint.sh /entrypoint.sh
 
+RUN chmod 755 /usr/share/nginx/*
+RUN chown -R nginx:nginx /usr/share/nginx/*
+
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 80 443
