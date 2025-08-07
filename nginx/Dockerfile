@@ -3,13 +3,15 @@ FROM nginx:stable
 RUN mkdir -p /etc/nginx/sites-available \
     && mkdir -p /etc/nginx/snippets \
     && mkdir -p /etc/nginx/ssl/certs \
-    && mkdir -p /var/log/nginx
+    && mkdir -p /var/log/nginx \
+    && mkdir -p /ssl/certs
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/sites-available /etc/nginx/sites-available
 COPY conf/snippets /etc/nginx/snippets
 COPY html /usr/share/nginx/html
 COPY ssl/certs /etc/nginx/ssl/certs
+COPY ssl/generate-ssl.sh /ssl/generate-ssl.sh
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod 755 /usr/share/nginx/*

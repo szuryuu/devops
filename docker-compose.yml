@@ -1,0 +1,28 @@
+services:
+  http-server:
+    build: ./http-server
+    container_name: http-server
+    networks:
+      - devops
+    user: "1001"
+    volumes:
+      - ./http-server/logs:/app/logs
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    depends_on:
+      - http-server
+    networks:
+      - devops
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/ssl/certs:/etc/nginx/ssl/certs
+      - ./nginx/html:/usr/share/nginx/html
+
+networks:
+  devops:
+    driver: bridge
