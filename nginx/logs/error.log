@@ -1,0 +1,35 @@
+2025/08/07 03:48:56 [emerg] 6#6: no "events" section in configuration
+2025/08/07 03:48:56 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:48:57 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:48:57 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:48:58 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:49:00 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:49:03 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:49:10 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:49:23 [emerg] 8#8: no "events" section in configuration
+2025/08/07 03:49:48 [emerg] 6#6: no "events" section in configuration
+2025/08/07 03:50:40 [emerg] 6#6: no "events" section in configuration
+2025/08/07 03:51:40 [emerg] 6#6: no "events" section in configuration
+2025/08/07 03:52:40 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:41 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:41 [emerg] 6#6: no "events" section in configuration
+2025/08/07 03:52:41 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:42 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:43 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:45 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:48 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:52:55 [emerg] 7#7: no "events" section in configuration
+2025/08/07 03:55:36 [emerg] 7#7: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:55:36 [emerg] 7#7: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:55:37 [emerg] 7#7: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:55:37 [emerg] 8#8: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:55:38 [emerg] 7#7: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:55:40 [emerg] 8#8: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:55:43 [emerg] 7#7: "server" directive is not allowed here in /etc/nginx/nginx.conf:1
+2025/08/07 03:57:52 [warn] 7#7: the "listen ... http2" directive is deprecated, use the "http2" directive instead in /etc/nginx/nginx.conf:9
+2025/08/07 03:59:19 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.19.0.1, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/08/07 03:59:23 [error] 8#8: *1 open() "/usr/share/nginx/html/image" failed (2: No such file or directory), client: 172.19.0.1, server: example.com, request: "GET /image HTTP/1.1", host: "localhost"
+2025/08/07 03:59:30 [error] 8#8: *1 directory index of "/usr/share/nginx/html/images/" is forbidden, client: 172.19.0.1, server: example.com, request: "GET /images/ HTTP/1.1", host: "localhost"
+2025/08/07 03:59:30 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.19.0.1, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/images/"
+2025/08/07 03:59:36 [error] 8#8: *1 directory index of "/usr/share/nginx/html/audio/" is forbidden, client: 172.19.0.1, server: example.com, request: "GET /audio/ HTTP/1.1", host: "localhost"
+2025/08/07 03:59:36 [error] 8#8: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.19.0.1, server: example.com, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/audio/"
