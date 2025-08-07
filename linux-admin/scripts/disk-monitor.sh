@@ -2,11 +2,11 @@
 
 URL="https://eo5wtn983pri732.m.pipedream.net"
 
-count=$(df -h | awk 'NR>1 && int($5) >= 20' | wc -l)
+count=$(df -h | awk 'NR>1 && int($5) >= 90' | wc -l)
 
 echo "Total high usage disks: $count"
 
-df -h | awk 'NR>1 && int($5) >= 20' | while read -r FS SIZE USED UNUSED PERCENT MOUNT
+df -h | awk 'NR>1 && int($5) >= 90' | while read -r FS SIZE USED UNUSED PERCENT MOUNT
 do
     curl -X POST $URL \
     -H "Content-Type: application/json" \
