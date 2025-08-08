@@ -16,3 +16,9 @@
 {"timestamp":"2025-08-07T13:55:57.188126249Z","method":"GET","path":"/time","status_code":200,"duration":"8.289µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:42816"}
 2025/08/08 03:08:46 got interruption signal
 2025/08/08 03:10:56 got interruption signal
+2025/08/08 10:40:53 got interruption signal
+2025/08/08 10:41:05 got interruption signal
+2025/08/08 10:41:17 got interruption signal
+2025/08/08 10:41:29 got interruption signal
+2025/08/08 10:41:41 got interruption signal
+2025/08/08 10:41:53 got interruption signal

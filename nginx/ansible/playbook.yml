@@ -4,7 +4,8 @@
   become: true
 
   vars:
-    project_directory: "{{ playbook_dir }}/../.."
+    # Clean Path
+    project_directory: "{{ (playbook_dir ~ '/../..') | realpath }}"
 
   tasks:
     - name: EDIT HOSTS
@@ -36,18 +37,19 @@
       community.docker.docker_compose_v2:
         project_src: "{{ project_directory }}"
         build: "always"
-        state: present
+        # state: present
       environment:
         TESTUSERS_GID: "{{ testusers_gid.stdout }}"
 
     - name: COPY SYSTEMD SERVICE FILE
-      copy:
-        src: "{{ project_directory }}/systemd/devops-app.service"
+      template:
+        src: "{{ project_directory }}/systemd/devops-app.service.j2"
         dest: /etc/systemd/system/devops-app.service
+        mode: 0644
 
     - name: START HTTP SERVER SERVICE
       systemd:
         name: devops-app.service
-        state: started
+        state: restarted
         enabled: yes
         daemon_reload: yes
