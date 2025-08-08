@@ -3,6 +3,9 @@
   hosts: localhost
   become: true
 
+  vars:
+    project_directory: "{{ playbook_dir }}/../.."
+
   tasks:
     - name: EDIT HOSTS
       blockinfile:
@@ -31,7 +34,7 @@
 
     - name: RUNNING DOCKER COMPOSE
       community.docker.docker_compose_v2:
-        project_src: "{{ playbook_dir }}/../.."
+        project_src: "{{ project_directory }}"
         build: "always"
         state: present
       environment:
@@ -39,12 +42,12 @@
 
     - name: COPY SYSTEMD SERVICE FILE
       copy:
-        src: "{{ playbook_dir }}../../http-server/systemd/custom-http-server.service"
-        dest: /etc/systemd/system/custom-http-server.service
+        src: "{{ project_directory }}/systemd/devops-app.service"
+        dest: /etc/systemd/system/devops-app.service
 
     - name: START HTTP SERVER SERVICE
       systemd:
-        name: custom-http-server.service
+        name: devops-app.service
         state: started
         enabled: yes
         daemon_reload: yes
