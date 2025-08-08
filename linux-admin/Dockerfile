@@ -7,13 +7,13 @@ RUN apt-get update && \
 
 COPY . .
 
+# Permissions
 RUN chmod +x ./entrypoint.sh ./scripts/*.sh
-RUN printf "* * * * * root /bin/bash /scripts/disk-monitor.sh >> /var/log/cron.log 2>&1\n" > /etc/cron.d/high-usage-check && \
-    chmod 0644 /etc/cron.d/high-usage-check
-RUN crontab /etc/cron.d/high-usage-check
-RUN touch /var/log/cron.log
 
-EXPOSE 80
+RUN echo "* * * * * root /bin/bash /scripts/disk-monitor.sh >> /var/log/cron.log 2>&1" \
+    > /etc/cron.d/high-usage-check && \
+    chmod 0644 /etc/cron.d/high-usage-check && \
+    crontab /etc/cron.d/high-usage-check && \
+    touch /var/log/cron.log
 
-ENTRYPOINT ["/bin/bash", "-c", "./entrypoint.sh & cron && tail -f /var/log/cron.log"]
-CMD ["echo", "Running Bash\n", "Jawa"]
+CMD ["./entrypoint.sh"]

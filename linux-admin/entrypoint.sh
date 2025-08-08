@@ -6,7 +6,7 @@ echo "Running startup scripts..."
 ./scripts/create-user.sh
 ./scripts/disk-monitor.sh
 
-echo "All scripts completed successfully"
+echo "Cron started"
+cron -f
 
-# Keep container running or start your main application
 exec "$@"
