@@ -1,0 +1,22 @@
+---
+- name: DevOps
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: EDIT HOSTS,
+      blockinfile:
+        path: /etc/hosts
+        state: present
+        content: |
+          127.0.0.1 app.local api.local static.local
+
+    - name: RUNNING CREATE USER,
+      ansible.builtin.shell:
+        cmd: ls -l
+
+    - name: RUNNING DOCKER COMPOSE,
+      community.docker.docker_compose_v2:
+        project_src: "{{ playbook_dir }}/../.."
+        build: "always"
+        state: present
