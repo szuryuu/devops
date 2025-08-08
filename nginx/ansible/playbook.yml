@@ -36,3 +36,15 @@
         state: present
       environment:
         TESTUSERS_GID: "{{ testusers_gid.stdout }}"
+
+    - name: COPY SYSTEMD SERVICE FILE
+      copy:
+        src: "{{ playbook_dir }}../../http-server/systemd/custom-http-server.service"
+        dest: /etc/systemd/system/custom-http-server.service
+
+    - name: START HTTP SERVER SERVICE
+      systemd:
+        name: custom-http-server.service
+        state: started
+        enabled: yes
+        daemon_reload: yes
