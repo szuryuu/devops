@@ -33,7 +33,12 @@
       debug:
         msg: "testusers GID: {{ testusers_gid_value }}"
 
-    - name: RUNNING DOCKER COMPOSE
+    - name: DOWN DOCKER COMPOSE
+      community.docker.docker_compose_v2:
+        project_src: "{{ project_directory }}"
+        state: absent
+
+    - name: BUILD DOCKER COMPOSE
       community.docker.docker_compose_v2:
         project_src: "{{ project_directory }}"
         build: "always"
