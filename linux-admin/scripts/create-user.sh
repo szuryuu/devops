@@ -1,12 +1,12 @@
 #!/bin/bash
 
-URL="https://eo5wtn983pri732.m.pipedream.net/request-bin-recive-testusers"
+# URL="https://eo5wtn983pri732.m.pipedream.net/request-bin-recive-testusers"
 
 if ! getent group testusers &>/dev/null; then
     groupadd testusers
 fi
 
-for i in {1001..1100}; do
+for i in {1001..1002}; do
     USERNAME="user-$i"
 
     if id $USERNAME &>/dev/null; then
@@ -16,7 +16,8 @@ for i in {1001..1100}; do
 
     useradd -u $i -g testusers $USERNAME
     GROUPNAME=$(id -g -n $USERNAME)
-    GID=$(id -g "$USERNAME")
+    # GID=$(id -g "$USERNAME")
+    GID=$(getent group testusers | cut -d: -f3)
 
     curl -X POST $URL \
     -H "Content-Type: application/json" \

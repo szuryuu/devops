@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL="https://eo5wtn983pri732.m.pipedream.net/request-bin-recive-disk"
+# URL="https://eo5wtn983pri732.m.pipedream.net/request-bin-recive-disk"
 
 count=$(df -h | awk 'NR>1 && int($5) >= 90' | wc -l)
 

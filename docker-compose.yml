@@ -4,9 +4,14 @@ services:
     container_name: http-server
     networks:
       - devops
-    user: "1001"
+    user: "1001:${TESTUSER_GID:-1000}"
     volumes:
-      - /app/logs
+      - ./http-server/logs:/app/logs
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+    environment:
+      - APP_USER=appuser
+      - APP_GROUP=testusers
 
   nginx:
     build: ./nginx
