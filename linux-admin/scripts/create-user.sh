@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# URL="https://eo5wtn983pri732.m.pipedream.net/request-bin-recive-testusers"
+URL="https://eo95iwyeuvrkvym.m.pipedream.net"
 
 if ! getent group testusers &>/dev/null; then
     groupadd testusers

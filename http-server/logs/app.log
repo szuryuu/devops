@@ -65,3 +65,8 @@ Configuration successfully reloaded via SIGUSR2
 2025/08/08 11:06:06 got interruption signal
 2025/08/08 11:06:19 got interruption signal
 2025/08/08 11:06:30 got interruption signal
+2025/08/08 11:07:16 got interruption signal
+{"timestamp":"2025-08-08T11:09:35.337732973Z","method":"GET","path":"/random","status_code":200,"duration":"27.804µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:37866"}
+2025/08/08 12:10:27 got interruption signal
+2025/08/08 13:08:31 got interruption signal
+2025/08/08 15:48:46 got interruption signal
