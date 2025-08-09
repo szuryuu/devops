@@ -70,3 +70,15 @@ Configuration successfully reloaded via SIGUSR2
 2025/08/08 12:10:27 got interruption signal
 2025/08/08 13:08:31 got interruption signal
 2025/08/08 15:48:46 got interruption signal
+2025/08/09 09:27:38 got interruption signal
+2025/08/09 09:28:08 got interruption signal
+Configuration successfully reloaded via SIGUSR2
+Configuration successfully reloaded via SIGUSR2
+2025/08/09 09:32:03 got interruption signal
+Log file reopened via SIGUSR1
+Log file reopened via SIGUSR1
+{"timestamp":"2025-08-09T09:32:46.544740238Z","method":"GET","path":"/random","status_code":200,"duration":"29.686µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:49628"}
+{"timestamp":"2025-08-09T09:32:51.22813156Z","method":"GET","path":"/time","status_code":200,"duration":"8.62µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:49636"}
+2025/08/09 09:35:04 got interruption signal
+Log file reopened via SIGUSR1
+Configuration successfully reloaded via SIGUSR2

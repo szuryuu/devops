@@ -124,7 +124,7 @@ func writeLog(message string) {
 }
 
 func logRequest(level int, message string) {
-	if level >= config.LogLevel {
+	if level <= config.LogLevel {
 		writeLog(message)
 	}
 }
@@ -176,6 +176,7 @@ func main() {
 			ctx, stop := context.WithTimeout(context.Background(), 5*time.Second)
 			defer stop()
 			log.Printf("got interruption signal")
+			logRequest(0, "Server shutting down gracefully")
 			if err := srv.Shutdown(ctx); err != nil {
 				log.Println("graceful shutdown failed:", err)
 			}
@@ -190,7 +191,7 @@ func main() {
 		case syscall.SIGUSR2:
 			fmt.Println("Received SIGUSR2: Reloading configuration...")
 			loadConfig()
-			logRequest(2, "Configuration successfully reloaded via SIGUSR2")
+			logRequest(1, "Configuration successfully reloaded via SIGUSR2")
 		}
 	}
 }
