@@ -5,4 +5,12 @@ if [ ! -f /etc/nginx/ssl/certs/server.crt ]; then
     bash ./ssl/generate-ssl.sh
 fi
 
-nginx -g 'daemon off;'
+nginx -t
+
+if [ $? -eq 0 ]; then
+    echo "Nginx configuration is valid"
+    nginx -g 'daemon off;'
+else
+    echo "Nginx configuration error"
+    exit 1
+fi
