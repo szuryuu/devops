@@ -48,6 +48,12 @@
       environment:
         TESTUSERS_GID: "{{ testusers_gid_value }}"
 
+    - name: CREATE ENVIRONMENT FILE FOR SYSTEMD
+      copy:
+        content: "TESTUSERS_GID={{ testusers_gid_value }}"
+        dest: /etc/devops-app.env
+        mode: "0644"
+
     - name: COPY SYSTEMD SERVICE FILE
       template:
         src: "{{ project_directory }}/systemd/devops-app.service.j2"
