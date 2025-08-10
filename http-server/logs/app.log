@@ -82,3 +82,17 @@ Log file reopened via SIGUSR1
 2025/08/09 09:35:04 got interruption signal
 Log file reopened via SIGUSR1
 Configuration successfully reloaded via SIGUSR2
+2025/08/09 09:40:42 got interruption signal
+2025/08/09 09:41:11 got interruption signal
+Server shutting down gracefully
+{"timestamp":"2025-08-09T09:41:19.518482339Z","method":"GET","path":"/time","status_code":200,"duration":"84.723µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:60980"}
+{"timestamp":"2025-08-09T09:41:28.929491015Z","method":"GET","path":"/time","status_code":200,"duration":"7.596µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:47690"}
+{"timestamp":"2025-08-09T09:41:30.026323062Z","method":"GET","path":"/time","status_code":200,"duration":"7.819µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:47698"}
+2025/08/09 09:42:30 got interruption signal
+Server shutting down gracefully
+2025/08/09 09:43:16 got interruption signal
+Server shutting down gracefully
+2025/08/09 16:00:55 got interruption signal
+Server shutting down gracefully
+2025/08/10 07:36:34 got interruption signal
+Server shutting down gracefully

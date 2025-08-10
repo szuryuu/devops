@@ -16,7 +16,7 @@ import (
 var config Config
 var logFile *os.File
 var getTime = func() string {
-	return time.Now().Format("2006-01-02 15:04:05")
+	return time.Now().Format("15:04:05")
 }
 var getRandomNumber = func() int {
 	return rand.Intn(100)
@@ -60,6 +60,7 @@ func loadConfig() {
 		log.Fatal(err)
 	} else {
 		fmt.Println(config)
+		fmt.Println("Load Config Successfully")
 	}
 
 	if err := openLogFile(); err != nil {
@@ -175,6 +176,7 @@ func main() {
 		case syscall.SIGINT, syscall.SIGTERM:
 			ctx, stop := context.WithTimeout(context.Background(), 5*time.Second)
 			defer stop()
+
 			log.Printf("got interruption signal")
 			logRequest(0, "Server shutting down gracefully")
 			if err := srv.Shutdown(ctx); err != nil {
