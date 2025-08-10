@@ -19,8 +19,8 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod 600 /etc/nginx/ssl/certs/server.key && \
     chmod 644 /etc/nginx/ssl/certs/server.crt && \
     chmod +x /entrypoint.sh && \
-    # chown -R root:root /etc/nginx/ssl/certs && \
-    chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl/certs /usr/share/nginx/html /var/log/nginx
+    chown -R root:root /etc/nginx/ssl/certs && \
+    chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx
 
 # USER ${APP_UID}:${APP_GID}
 EXPOSE 80 443

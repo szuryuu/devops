@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "APP_UID=${APP_UID}"
+echo "APP_GID=${APP_GID}"
+
 if [ ! -f /etc/nginx/ssl/certs/server.crt ]; then
     echo "SSL certificate not found, generating self-signed cert..."
     bash ./ssl/generate-ssl.sh
