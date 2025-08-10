@@ -6,6 +6,9 @@ ARG APP_GID
 ENV APP_UID=${APP_UID}
 ENV APP_GID=${APP_GID}
 
+RUN groupadd --gid ${APP_GID} testusers && \
+    useradd --uid ${APP_UID} --gid ${APP_GID} --shell /bin/false user-${APP_UID}
+
 RUN mkdir -p /etc/nginx/sites-available &&\
     mkdir -p /etc/nginx/snippets &&\
     mkdir -p /etc/nginx/ssl/certs &&\
@@ -27,7 +30,6 @@ RUN chmod 644 /etc/nginx/ssl/certs/server.crt && \
     chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx && \
     chown -R ${APP_UID}:${APP_GID} /var/cache/nginx /var/run
 
-# USER ${APP_UID}:${APP_GID}
 EXPOSE 80 443
 
 ENTRYPOINT ["/entrypoint.sh"]

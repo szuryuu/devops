@@ -30,7 +30,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    user: "1001:${TESTUSERS_GID:-1000}"
+    # user: "1001:${TESTUSERS_GID:-1000}"
     volumes:
       - ./nginx/conf/sites-available:/etc/nginx/sites-available
       # - ./nginx/ssl/certs:/etc/nginx/ssl/certs
