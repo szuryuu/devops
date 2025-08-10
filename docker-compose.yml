@@ -1,6 +1,10 @@
 services:
   http-server:
-    build: ./http-server
+    build:
+      context: ./http-server
+      args:
+        APP_UID: 1001
+        APP_GID: ${TESTUSERS_GID}
     container_name: http-server
     networks:
       - devops
@@ -10,11 +14,14 @@ services:
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
     environment:
-      - APP_USER=appuser
-      - APP_GROUP=testusers
+      TESTUSERS_GID: ${TESTUSERS_GID:-1000}
 
   nginx:
-    build: ./nginx
+    build:
+      context: ./nginx
+      args:
+        APP_UID: 1001
+        APP_GID: ${TESTUSERS_GID}
     container_name: nginx
     depends_on:
       - http-server
@@ -23,10 +30,15 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    user: "1001:${TESTUSER_GID:-1000}"
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/ssl/certs:/etc/nginx/ssl/certs
       - ./nginx/html:/usr/share/nginx/html
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+    environment:
+      TESTUSERS_GID: ${TESTUSERS_GID:-1000}
 
 networks:
   devops:

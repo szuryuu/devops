@@ -37,14 +37,16 @@
       community.docker.docker_compose_v2:
         project_src: "{{ project_directory }}"
         state: absent
+      environment:
+        TESTUSERS_GID: "{{ testusers_gid_value }}"
 
     - name: BUILD DOCKER COMPOSE
       community.docker.docker_compose_v2:
         project_src: "{{ project_directory }}"
         build: "always"
-        # state: present
+        state: present
       environment:
-        TESTUSERS_GID: "{{ testusers_gid.stdout }}"
+        TESTUSERS_GID: "{{ testusers_gid_value }}"
 
     - name: COPY SYSTEMD SERVICE FILE
       template:

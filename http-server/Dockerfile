@@ -1,6 +1,9 @@
 FROM golang:1.24-alpine AS builder
 WORKDIR /app
 
+ARG APP_UID
+ARG APP_GID
+
 COPY go.mod ./
 
 RUN go mod tidy
@@ -21,7 +24,7 @@ RUN apk add --no-cache bash ca-certificates curl && \
 COPY --from=builder /app/main .
 COPY --chown=1001:1001 ./config ./config
 
-USER 1001
+USER ${APP_UID}:${APP_GID}
 EXPOSE 8080
 
 CMD ["./main"]
