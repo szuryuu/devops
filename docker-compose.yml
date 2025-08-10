@@ -33,10 +33,10 @@ services:
     user: "1001:${TESTUSERS_GID:-1000}"
     volumes:
       - ./nginx/conf/sites-available:/etc/nginx/sites-available
-      - ./nginx/ssl/certs:/etc/nginx/ssl/certs
+      # - ./nginx/ssl/certs:/etc/nginx/ssl/certs
       - ./nginx/html:/usr/share/nginx/html
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
+      # - /etc/passwd:/etc/passwd:ro
+      # - /etc/group:/etc/group:ro
     environment:
       - TESTUSERS_GID=${TESTUSERS_GID:-1000}
 

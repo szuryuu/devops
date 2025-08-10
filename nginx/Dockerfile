@@ -3,6 +3,9 @@ FROM nginx:stable
 ARG APP_UID
 ARG APP_GID
 
+ENV APP_UID=${APP_UID}
+ENV APP_GID=${APP_GID}
+
 RUN mkdir -p /etc/nginx/sites-available &&\
     mkdir -p /etc/nginx/snippets &&\
     mkdir -p /etc/nginx/ssl/certs &&\
@@ -16,11 +19,13 @@ COPY ssl/certs /etc/nginx/ssl/certs
 COPY ssl/generate-ssl.sh /ssl/generate-ssl.sh
 COPY entrypoint.sh /entrypoint.sh
 
-RUN chmod 600 /etc/nginx/ssl/certs/server.key && \
-    chmod 644 /etc/nginx/ssl/certs/server.crt && \
+RUN chmod 644 /etc/nginx/ssl/certs/server.crt && \
     chmod +x /entrypoint.sh && \
     chown -R root:root /etc/nginx/ssl/certs && \
-    chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx
+    chown root:nginx /etc/nginx/ssl/certs/server.key && \
+    chmod 640 /etc/nginx/ssl/certs/server.key && \
+    chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx && \
+    chown -R ${APP_UID}:${APP_GID} /var/cache/nginx /var/run
 
 # USER ${APP_UID}:${APP_GID}
 EXPOSE 80 443
