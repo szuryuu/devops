@@ -21,8 +21,7 @@ RUN chmod 600 /etc/nginx/ssl/certs/server.key && \
     chmod +x /entrypoint.sh && \
     chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl/certs /usr/share/nginx/html /var/log/nginx
 
-
-USER ${APP_UID}:${APP_GID}
+# USER ${APP_UID}:${APP_GID}
 EXPOSE 80 443
 
 ENTRYPOINT ["/entrypoint.sh"]
