@@ -28,6 +28,6 @@ RUN chmod +x /entrypoint.sh && \
     chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx /var/cache/nginx /var/run /run
 
 EXPOSE 80 443
-USER ${APP_UID}:${APP_GID}
+# USER ${APP_UID}:${APP_GID}
 
 ENTRYPOINT ["/entrypoint.sh"]

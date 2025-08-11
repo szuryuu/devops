@@ -433,3 +433,14 @@ Server shutting down gracefully
 Server shutting down gracefully
 2025/08/11 02:55:43 got interruption signal
 Server shutting down gracefully
+2025/08/11 03:11:55 got interruption signal
+Server shutting down gracefully
+2025/08/11 03:12:13 got interruption signal
+Server shutting down gracefully
+2025/08/11 03:13:59 got interruption signal
+Server shutting down gracefully
+2025/08/11 03:14:14 got interruption signal
+Server shutting down gracefully
+Configuration successfully reloaded via SIGUSR2
+Log file reopened via SIGUSR1
+Server shutting down gracefully
