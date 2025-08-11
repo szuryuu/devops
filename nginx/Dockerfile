@@ -22,14 +22,12 @@ COPY ssl/certs /etc/nginx/ssl/certs
 COPY ssl/generate-ssl.sh /ssl/generate-ssl.sh
 COPY entrypoint.sh /entrypoint.sh
 
-RUN chmod 644 /etc/nginx/ssl/certs/server.crt && \
-    chmod +x /entrypoint.sh && \
-    chown -R root:root /etc/nginx/ssl/certs && \
-    chown root:nginx /etc/nginx/ssl/certs/server.key && \
+RUN chmod +x /entrypoint.sh && \
+    chmod 644 /etc/nginx/ssl/certs/server.crt && \
     chmod 640 /etc/nginx/ssl/certs/server.key && \
-    chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx && \
-    chown -R ${APP_UID}:${APP_GID} /var/cache/nginx /var/run
+    chown -R ${APP_UID}:${APP_GID} /etc/nginx/ssl /usr/share/nginx/html /var/log/nginx /var/cache/nginx /var/run /run
 
 EXPOSE 80 443
+USER ${APP_UID}:${APP_GID}
 
 ENTRYPOINT ["/entrypoint.sh"]
