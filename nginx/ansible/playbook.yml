@@ -12,6 +12,7 @@
       blockinfile:
         path: /etc/hosts
         state: present
+        marker: "# {mark} ANSIBLE MANAGED HOSTS"
         content: |
           127.0.0.1 app.local api.local static.local
 

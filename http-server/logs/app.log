@@ -390,3 +390,46 @@ Server shutting down gracefully
 Server shutting down gracefully
 2025/08/11 00:48:30 got interruption signal
 Server shutting down gracefully
+2025/08/11 01:56:54 got interruption signal
+Server shutting down gracefully
+2025/08/11 01:57:12 got interruption signal
+Server shutting down gracefully
+2025/08/11 01:57:54 got interruption signal
+Server shutting down gracefully
+2025/08/11 01:58:12 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:18:56 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:19:13 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:22:35 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:22:51 got interruption signal
+Server shutting down gracefully
+{"timestamp":"2025-08-11T02:25:23.740064839Z","method":"GET","path":"/random","status_code":200,"duration":"21.853µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:36596"}
+2025/08/11 02:27:00 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:27:17 got interruption signal
+Server shutting down gracefully
+{"timestamp":"2025-08-11T02:27:21.547004949Z","method":"GET","path":"/random","status_code":200,"duration":"32.516µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:48062"}
+2025/08/11 02:33:30 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:33:51 got interruption signal
+Server shutting down gracefully
+{"timestamp":"2025-08-11T02:34:01.459494258Z","method":"GET","path":"/random","status_code":200,"duration":"45.488µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:35782"}
+2025/08/11 02:36:06 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:36:22 got interruption signal
+Server shutting down gracefully
+{"timestamp":"2025-08-11T02:37:13.508097211Z","method":"GET","path":"/random","status_code":200,"duration":"22.605µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:46228"}
+2025/08/11 02:38:30 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:38:48 got interruption signal
+Server shutting down gracefully
+{"timestamp":"2025-08-11T02:39:20.300910247Z","method":"GET","path":"/random","status_code":200,"duration":"19.824µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:35220"}
+{"timestamp":"2025-08-11T02:46:44.702783599Z","method":"GET","path":"/random","status_code":200,"duration":"119.034µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:56218"}
+{"timestamp":"2025-08-11T02:52:45.381364006Z","method":"GET","path":"/random","status_code":200,"duration":"6.764µs","http_version":"HTTP/1.0","client_ip":"172.21.0.3:57398"}
+2025/08/11 02:55:25 got interruption signal
+Server shutting down gracefully
+2025/08/11 02:55:43 got interruption signal
+Server shutting down gracefully
