@@ -6,7 +6,7 @@ if ! getent group testusers &>/dev/null; then
     groupadd testusers
 fi
 
-for i in {1001..1002}; do
+for i in {1001..1100}; do
     USERNAME="user-$i"
 
     if id $USERNAME &>/dev/null; then
