@@ -15,6 +15,7 @@ WORKDIR /app
 
 RUN apk add --no-cache bash
 
+
 COPY --from=builder /app/main .
 
 CMD [ "./main" ]
